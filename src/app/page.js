@@ -1,19 +1,8 @@
 import React from 'react';
 import { Code } from 'bright';
+import CodeSnippet from '../components/CodeSnippet/CodeSnippet';
 
 function Home() {
-  const [
-    isFirstSnippetShown,
-    setIsFirstSnippetShown,
-  ] = React.useState(false);
-  const [
-    isSecondSnippetShown,
-    setIsSecondSnippetShown,
-  ] = React.useState(false);
-  const [
-    isThirdSnippetShown,
-    setIsThirdSnippetShown,
-  ] = React.useState(false);
 
   return (
     <main>
@@ -28,7 +17,7 @@ function Home() {
         based on the value you assign.
       </p>
 
-      {isFirstSnippetShown ? (
+      <CodeSnippet>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -36,17 +25,7 @@ function Home() {
         >
           {FIRST_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsFirstSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </CodeSnippet>
 
       <h2>
         Control Flow: Conditionals and Loops
@@ -57,25 +36,15 @@ function Home() {
         while loops.
       </p>
 
-      {isSecondSnippetShown ? (
+      <CodeSnippet>
         <Code
           className="code-snippet"
           theme="dracula"
           lang="py"
         >
           {SECOND_SNIPPET}
-        </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsSecondSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+        </Code>        
+      </CodeSnippet>
 
       <h2>Functions and Basic Data Structures</h2>
 
@@ -86,25 +55,16 @@ function Home() {
         lists and dictionaries.
       </p>
 
-      {isThirdSnippetShown ? (
+      <CodeSnippet>
         <Code
           className="code-snippet"
           theme="dracula"
           lang="py"
         >
           {THIRD_SNIPPET}
-        </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsThirdSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+        </Code>        
+      </CodeSnippet>
+
     </main>
   );
 }
